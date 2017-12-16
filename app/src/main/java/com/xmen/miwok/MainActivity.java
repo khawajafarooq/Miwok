@@ -34,5 +34,20 @@ public class MainActivity extends AppCompatActivity {
         // Setup the tabs
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            tabLayout.getTabAt(i).setIcon(getTabIcon(i));
+        }
+
+    }
+
+    private int getTabIcon(int position) {
+        switch (position) {
+            case 0: return R.drawable.ic_format_list_numbered_white_24dp;
+            case 1: return R.drawable.ic_account_circle_white_24dp;
+            case 2: return R.drawable.ic_invert_colors_white_24dp;
+            case 3: return R.drawable.ic_textsms_white_24dp;
+            default: return -1;
+        }
     }
 }

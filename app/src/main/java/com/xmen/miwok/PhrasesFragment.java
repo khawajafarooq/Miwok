@@ -105,7 +105,6 @@ public class PhrasesFragment extends Fragment {
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    //mAudioManager.registerMed
 
                     mMediaPlayer = MediaPlayer.create(getActivity(), currentWord.getAudioResourceId());
                     mMediaPlayer.start();
@@ -138,6 +137,7 @@ public class PhrasesFragment extends Fragment {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
+            mAudioManager = null;
         }
     }
 }

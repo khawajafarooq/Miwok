@@ -111,9 +111,15 @@ public class FamilyMembersFragment extends Fragment {
 
                 Word currentWord = words.get(i);
                 releaseMediaPlayer();
-                mMediaPlayer = MediaPlayer.create(getActivity(), currentWord.getAudioResourceId());
-                mMediaPlayer.start();
-                mMediaPlayer.setOnCompletionListener(mCompletionListenser);
+
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+
+                    mMediaPlayer = MediaPlayer.create(getActivity(), currentWord.getAudioResourceId());
+                    mMediaPlayer.start();
+                    mMediaPlayer.setOnCompletionListener(mCompletionListenser);
+                }
             }
         });
 
@@ -140,6 +146,7 @@ public class FamilyMembersFragment extends Fragment {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
+            mAudioManager = null;
         }
     }
 
