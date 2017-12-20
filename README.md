@@ -8,6 +8,11 @@ The app has following set of pronunciation:
 - Family Members
 - Phrases
 
+### Coverage
+- Relative Layouts
+- Fragments
+- ViewPager
+
 ### Author 🙏🏻
 **Web**: [Khawaja Farooq](http://khawajafarooq.github.io)
 
